@@ -1,39 +1,26 @@
-nome = str(input('Digite seu nome: '))
-idade = (input('Digite sua idade: '))
-
-
-with open ('nomes.txt', 'w') as arquivo:
-    arquivo.write(nome)
-
-with open ('idades.txt', 'w') as arquivo:
-    arquivo.write(idade)
-
-with open('nomes.txt', 'r') as arquivo:
-    nomes = arquivo.read()
-print(nomes)
-
-with open('idades.txt', 'r') as arquivo:
-    idades = arquivo.read()
-print(f'{idades} anos')
-
-cname = 1
-oidade = 2
-nada = 3
-cname = str(input('Você deseja mudar alguma coisa?\n1-Nome \n2-Idade\n3-Nada\n->'))
-
-if cname ==  'nome':
-    othername = str(input('Digite outro nome: '))
-    with open ('nomes.txt', 'w') as arquivo:
-        arquivo.write (othername)
-elif cname == 'idade':
-    oidade = str(input('Digite outra idade:'))
-    with open('idades.txt', 'w') as arquivo:
-        arquivo.write(oidade)
-
-with open('nomes.txt', 'r') as arquivo:
-    nomes = arquivo.read()
-print(nomes)
-
-with open('idades.txt', 'r') as arquivo:
-    idades = arquivo.read()
-print(f'{idades} anos')
+while True:
+	
+	menu = int(input("""
+ Digite oque deseja
+ 1- Criar 
+ 2- Ler  
+ 3- Atualizar 
+ 0- Sair
+ -> """))
+	if menu == 0:
+		break
+		
+	elif menu == 1:
+		nome = str(input('Digite seu nome: '))
+		idade = (input('Digite sua idade: '))
+		with open ('pessoas.txt', 'a') as arquivo:
+			arquivo.write(f" {nome} {idade} anos\n")
+			
+	elif menu == 2:
+		with open('pessoas.txt', 'r') as arquivo:
+			pessoas = arquivo.readlines()
+		for pessoa in pessoas:
+			print(f"{pessoa}", end="")
+			
+	elif menu == 3:
+		
